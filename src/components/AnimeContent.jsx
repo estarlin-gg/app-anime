@@ -4,6 +4,8 @@ import { AnimeCard } from "./AnimeCard";
 export const AnimeContent = () => {
   const [anime, setAnime] = useState(null);
 
+ 
+
   useEffect(() => {
     const CallApi = async () => {
       try {
@@ -22,7 +24,7 @@ export const AnimeContent = () => {
       {anime && anime.length > 0 ? (
         anime.map((animeData) => (
           <AnimeCard
-            key={animeData.id}
+            key={animeData.mal_id}
             title={animeData.title}
             url={animeData.images.jpg.image_url}
           />
