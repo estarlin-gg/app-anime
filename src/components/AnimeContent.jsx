@@ -16,7 +16,7 @@ export const AnimeContent = () => {
     };
     CallApi();
   }, []);
-  console.log(anime);
+
   return (
     <div className=" grid grid-cols-1 gap-4 place-items-center sm:grid-cols-2 lg:grid-cols-3 p-4 min-h-screen ">
       {anime && anime.length > 0 ? (
@@ -28,7 +28,7 @@ export const AnimeContent = () => {
           />
         ))
       ) : (
-        <p className="text-4xl font-bold text-white mt-48 text-center">Loading...</p>
+        <p className="text-4xl font-bold text-white mt-48 text-center ">Loading...</p>
       )}
     </div>
   );

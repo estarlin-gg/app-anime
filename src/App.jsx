@@ -3,13 +3,11 @@ import "./App.css";
 import { AnimeContent } from "./components/AnimeContent";
 
 function App() {
-  // const [anime, setAnime] = useState(null);
 
-  // console.log(anime);
   return (
     <>
       <main className="bg-blue-950">
-        <header className="w-full bg-cyan-400 p-4 flex justify-between items-center  ">
+        <header className="w-full bg-cyan-400 p-3  flex justify-between items-center gap-4   ">
           <h2 className="text-3xl text-white text-pretty">Animes</h2>
           <form className="form w-2/3 lg:w-2/5">
             <input
