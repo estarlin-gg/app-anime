@@ -1,10 +1,12 @@
 import { useState, useEffect } from "react";
 import { AnimeCard } from "./AnimeCard";
 
-export const AnimeContent = () => {
+export const AnimeContent = ({ details }) => {
   const [anime, setAnime] = useState(null);
+  const setMandar = (data) => {
+    details(data)
 
- 
+  }
 
   useEffect(() => {
     const CallApi = async () => {
@@ -12,6 +14,7 @@ export const AnimeContent = () => {
         const anime = await fetch("https://api.jikan.moe/v4/anime");
         const data = await anime.json();
         setAnime(data.data);
+        // details(data.data);
       } catch (error) {
         console.log(error);
       }
@@ -26,11 +29,17 @@ export const AnimeContent = () => {
           <AnimeCard
             key={animeData.mal_id}
             title={animeData.title}
-            url={animeData.images.jpg.image_url}
+            img={animeData.images.jpg.image_url}
+            score={animeData.score}
+            episodes={animeData.episodes}
+            synopsis={animeData.synopsis}
+            mandar={setMandar}
           />
         ))
       ) : (
-        <p className="text-4xl font-bold text-white mt-48 text-center ">Loading...</p>
+        <p className="text-4xl font-bold text-white mt-48 text-center ">
+          Loading...
+        </p>
       )}
     </div>
   );
